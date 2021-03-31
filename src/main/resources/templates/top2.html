@@ -13,7 +13,7 @@
 	</head>
 	<body class="login">
 		<h1>ログイン画面</h1>
-			<form th:action="@{/login}" class="login" method=post>
+			<form th:action="@{/top}" class="login" method=post>
 				<section class="login-form">
 					<div class="secs">
 						<div class="sec">
@@ -25,7 +25,7 @@
 						<div class="sec">
 							<div class="col-head">パスワード</div>
 							<div class=col>
-								<input type="text" class="mr-3" name="password" placeholder="パスワード">
+								<input type="password" class="mr-3" name="password" placeholder="パスワード">
 							</div>
 						</div>
 						<div class="sec">
@@ -36,5 +36,6 @@
 						</div>
 					</div>
 				</section>
+			</form>
 	</body>
 </html>

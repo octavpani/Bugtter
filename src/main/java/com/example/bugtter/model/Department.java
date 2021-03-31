@@ -15,7 +15,7 @@ import lombok.Data;
 @Table(name="department")
 public class Department {
 
-	@Column(name="id")
+	@Column(name="department_id")
 	@Id
 	private Long id;
 

@@ -20,18 +20,18 @@ public class User {
 
 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="user_id")
 	@Id
 	private Long id;
 
-	@Column(name="name")
-	private String name;
+	@Column(name="username")
+	private String username;
 
 	@Column(name="password")
 	private String password;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id", nullable=false, insertable = false, updatable = false)
+	@JoinColumn(name="department_id", nullable=false, insertable = false, updatable = false)
 	private Department department;
 
 	@Column(name="role")
@@ -44,9 +44,9 @@ public class User {
 	public User() {
 	}
 
-	public User(Long id, String name, String password, Department department, String role, String avatar) {
+	public User(Long id, String username, String password, Department department, String role, String avatar) {
 		this.id = id;
-		this.name = name;
+		this.username = username;
 		this.password = password;
 		this.department = department;
 		this.role = role;

@@ -17,11 +17,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private final UserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String name)
+	public UserDetails loadUserByUsername(String username)
 	        throws UsernameNotFoundException {
-		User user = userRepository.findByName(name);
+		User user = userRepository.findByUsername(username);
 		if(user == null) {
-			throw new UsernameNotFoundException(name + "not found");
+			throw new UsernameNotFoundException(username + "not found");
 		}
 		return new CustomUserDetails(user);
 	}
@@ -32,7 +32,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
 	}
 	/*どこで使っているメソッドなのか？→
-	 * SecurityConfig
+	 SecurityConfig
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService)

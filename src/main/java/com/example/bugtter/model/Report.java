@@ -20,7 +20,7 @@ import lombok.Data;
 
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "report_id")
 	@Id
 	private Long id;
 
@@ -34,12 +34,12 @@ import lombok.Data;
 
 	//ここの処理は、参照用としての宣言
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id", nullable=false, insertable = false, updatable = false)
+	@JoinColumn(name="status_id", nullable=false, insertable = false, updatable = false)
 	private Status status;
 
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id", nullable=false, insertable = false, updatable = false)
+	@JoinColumn(name="user_id", nullable=false, insertable = false, updatable = false)
 	private User user;
 
 	//キャストできるの？データベースはchar

@@ -8,6 +8,6 @@ import com.example.bugtter.repository.ReportRepository;
 @Service
 public class ReportService {
 	@Autowired
-	private ReportRepository reportrepository;
+	private ReportRepository reportRepository;
 
 }
