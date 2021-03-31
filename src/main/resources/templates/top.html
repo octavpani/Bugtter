@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
-				xmlns:th="http://www.thymeleaf.org"
-				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
+		<meta charset="UTF-8">
+		<title>Top</title>
+		<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+	</head>
 		<!--/*-->
+		<meta charset="UTF-8">
+		<title>top</title>
 		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 		<!--*/-->
 	</head>
-	<body>
-	<h1>New World!</h1>
+	<body class="login">
+		<h1>ログイン画面</h1>
+			<form th:action="@{/login}" class="login" method=post>
+				<section class="login-form">
+					<div class="secs">
+						<div class="sec">
+							<div class="col-head">ユーザー</div>
+							<div class=col>
+								<input type="text" class="mr-3" name="name" placeholder="ユーザー名">
+							</div>
+						</div>
+						<div class="sec">
+							<div class="col-head">パスワード</div>
+							<div class=col>
+								<input type="text" class="mr-3" name="password" placeholder="パスワード">
+							</div>
+						</div>
+						<div class="sec">
+							<div class="col-head"></div>
+							<div class=col>
+								<input type=submit  class="ope" value="login">
+							</div>
+						</div>
+					</div>
+				</section>
 	</body>
 </html>
