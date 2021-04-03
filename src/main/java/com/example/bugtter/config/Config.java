@@ -32,12 +32,12 @@ public class Config extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/login", "/logout/*", "/register", "/attendance", "/attendances/*", "/attendance/list/", "/delete/*", "/attendance/list*", "/export/*", "/form/*").permitAll()
+			.antMatchers("/top", "/error").permitAll()
 			.antMatchers("/logout").authenticated()
 			.antMatchers("/admin/**").hasRole(Role.ADMIN.name())
 			.anyRequest().authenticated();
 		http.formLogin()
-			.loginPage("/login")
+			.loginPage("/top")
 			.usernameParameter("username")
 			.passwordParameter("password")
 			//.failureHandler(new ForwardAuthenticationFailureHandler("/loginError"))
