@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+				xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+				layout:decorate="~{partial/layout}">
+	<head>
 	<head>
 		<meta charset="UTF-8">
 		<title>Home</title>
 		<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
 	</head>
 	<body class="login">
+		<div class="main-content" layout:fragment="contents">
 		<h1>HOME</h1>
 			<form th:action="@{/login}" class="login" method=post>
 				<section class="login-form">
@@ -31,5 +37,6 @@
 					</div>
 				</section>
 			</form>
+		</div>
 	</body>
 </html>

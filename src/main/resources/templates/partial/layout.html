@@ -10,7 +10,7 @@
 <body>
 	<section class="container">
 			<section class="header">
-				<div><a class="brand" th:href="@{/}">勤怠管理アプリ</a></div>
+				<div><a class="brand" th:href="@{/top}">勤怠管理アプリ</a></div>
 				<div class="user-info">
 					<span th:text="${#authentication.principal.username}">user</span>
 					<img class="avatar" th:src="${#authentication.principal.avatar} != '' ? ${#authentication.principal.avatar} : @{/img/default_avatar.jpg}" />
