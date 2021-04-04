@@ -1,5 +1,7 @@
 package com.example.bugtter.model;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -47,14 +49,19 @@ import lombok.Data;
 	@Column(name = "urgency")
 	private int urgency;
 
+	@NotNull
+	@Column(name="create_time")
+	private LocalDateTime createTime;
+
 	public Report() {
 	}
 
-	public Report(Long id, String title, String content, Status status, User user) {
+	public Report(Long id, String title, String content, Status status, User user, LocalDateTime createTime) {
 	this.id = id;
 	this.title = title;
 	this.content = content;
 	this.status = status;
 	this.user = user;
+	this.createTime = createTime;
 	}
 }
