@@ -40,6 +40,10 @@ public class CustomUserDetails implements UserDetails {
 		return user.getRole();
 	}
 
+	public String getDepartment() {
+		return user.getDepartment().getName();
+	}
+
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;

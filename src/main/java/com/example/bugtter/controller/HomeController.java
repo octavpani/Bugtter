@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 
+import com.example.bugtter.model.CustomUserDetails;
+
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -30,6 +32,10 @@ public class HomeController {
 
 	@GetMapping("/home")
 	public String login(Authentication loginUser, Model model) {
+		CustomUserDetails ud = (CustomUserDetails) loginUser.getPrincipal();
+		model.addAttribute("role", ud.getRole());
+		model.addAttribute("department", ud.getDepartment());
+		model.addAttribute("username", ud.getUsername());
 		return "home";
 	}
 
