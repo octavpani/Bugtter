@@ -1,13 +1,29 @@
-@charset "ISO-8859-1";
+@import url(https://use.fontawesome.com/releases/v5.15.2/css/all.css);
+/* reset and basic tags */
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+* {
+	box-sizing: border-box
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
 
 body {
 	padding: 40px;
 }
+
 h1, h2, h3, section {
 	margin-bottom: 8px;
 }
 
-* layout */
+/* layout */
 .container {
 	margin: 0 auto;
 	max-width: 800px;
@@ -15,9 +31,9 @@ h1, h2, h3, section {
 	padding: 8px 16px;
 }
 .header-content {
-	padding: 4px;
+	padding: 20px;
 	color: #f5f5f5;
-	background-color: #888888;
+	background-color: #0000ff;
 	position: relative;
 }
 .main-content {
@@ -32,6 +48,7 @@ aside {
 	background-color: rgb(255, 255, 171, 0.5);
 	padding: 4px;
 }
+
 
 /* header section */
 .brand {
@@ -48,8 +65,9 @@ aside {
 }
 .user-info {
 	position: absolute;
-	right: 80px;
-	transform: translateY(-70%);
+	top: 50%;
+	right: 8px;
+	transform: translateY(-40%);
 }
 .user-info .avatar {
 	height: 32px;
@@ -65,4 +83,41 @@ aside {
 	padding: 2px 8px;
 	border-radius: 3px;
 	cursor: pointer;
+}
+
+/* flash message */
+
+
+/* back nav */
+
+
+/* grid */
+
+
+/* form */
+input.with-error {
+	border-color: #ff0000;
+}
+.input-msg,
+.error-msg {
+	font-size: 0.8em;
+}
+.error-msg {
+	color: #ff0000;
+}
+.ope-form {
+	display: inline-block;
+}
+
+/* paging */
+
+
+/* sorting */
+
+
+/* menu */
+
+
+.avatar {
+	max-width: 100px;
 }

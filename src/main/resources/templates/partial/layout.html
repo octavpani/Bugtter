@@ -4,22 +4,33 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bugtter</title>
 <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<section class="container">
-			<section class="header">
-				<div><a class="brand" th:href="@{/top}">勤怠管理アプリ</a></div>
+	<header>
+		<div class="container">
+			<div class="header-content">
+				<div class="brand">
+					<a th:href="@{/}">Bugtter</a>
+				</div>
 				<div class="user-info">
-					<span th:text="${#authentication.principal.username}">user</span>
-					<img class="avatar" th:src="${#authentication.principal.avatar} != '' ? ${#authentication.principal.avatar} : @{/img/default_avatar.jpg}" />
-					<form th:action="@{/logout}" method="post" />
-						<input class="ope" type="submit" value="Logout" />
+					<span th:text="${#authentication.principal.username}">user</span> <img
+						class="avatar"
+						th:src="${#authentication.principal.avatar} != '' ? ${#authentication.principal.avatar} : @{/img/default_avatar.jpg}" />
+					<form th:action="@{/top}" method="get" />
+					<input class="ope" type="button" value="Logout" />
 					</form>
 				</div>
-			</section>
-		<div layout:fragment="contents"></div>
-	</section>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div layout:fragment="contents"></div>
+		</div>
+	</main>
 </body>
 </html>
