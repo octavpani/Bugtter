@@ -44,6 +44,8 @@ import lombok.Data;
 	@JoinColumn(name="user_id", nullable=false, insertable = false, updatable = false)
 	private User user;
 
+	//後で、CreateUserとUpdateUserで分けるかも
+
 	//キャストできるの？データベースはchar
 	@NotNull
 	@Column(name = "urgency")

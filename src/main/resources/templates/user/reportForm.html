@@ -5,19 +5,13 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{partial/layout}">
 <head>
-<title>Home</title>
+<title>ReportForm</title>
 <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="main-content" layout:fragment="contents">
 		<section class="home-section">
-			<div th:each="report, itemStat : ${repos}">
-				<div class="bugbox">
-					<p th:text=${report.title}></p>
-					<p th:text=${report.content}></p>
-					<p th:text=${report.createTime}></p>
-				</div>
-			</div>
+			<h1>ReportForm</h1>
 		</section>
 	</div>
 </body>
