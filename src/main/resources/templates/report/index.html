@@ -11,12 +11,19 @@
 <body>
 	<div class="main-content" layout:fragment="contents">
 		<section class="home-section">
-		<table>
+		<!--  <table>
 			<tr th:each="report, itemStat : ${repos}">
 								<td th:text=${report.content}></td>
 								<td th:text=${report.createTime}></td>
 			</tr>
-		</table>
+		</table> !-->
+		<div th:each="report, itemStat : ${repos}">
+			<div class="bugbox">
+				<p th:text=${report.title}></p>
+				<p  th:text=${report.content}> </p>
+				<p th:text=${report.createTime}></p>
+			</div>
+		</div>
 		</section>
 	</div>
 </body>
