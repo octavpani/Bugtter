@@ -20,7 +20,7 @@ public class ReportService {
 	}
 
 	public void save(Report report) {
-		reportRepository.save(report);
+		reportRepository.saveAndFlush(report);
 
 	}
 

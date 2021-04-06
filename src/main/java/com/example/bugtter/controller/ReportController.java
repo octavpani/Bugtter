@@ -1,6 +1,5 @@
 package com.example.bugtter.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.security.core.Authentication;
@@ -31,10 +30,9 @@ public class ReportController {
 	private final UserService userService;
 	private final StatusService statusService;
 
-
 	@GetMapping("/index")
 	public String index(Model model) {
-		List<Report>repos = repo.findAll();
+		List<Report> repos = repo.findAll();
 		model.addAttribute("repos", repos);
 		return "report/index";
 	}
@@ -47,18 +45,15 @@ public class ReportController {
 	}
 
 	@PostMapping("/update")
-		public String update(@ModelAttribute Report report, ReportForm reportForm, Authentication loginUser, Model model ) {
+	public String update(@ModelAttribute Report report, ReportForm reportForm, Authentication loginUser, Model model) {
 		CustomUserDetails ud = (CustomUserDetails) loginUser.getPrincipal();
-		report.setCreateTime(LocalDateTime.now());
+		//ここは一つにまとめるべき？
+		report = reportForm.toEntity();
 		report.setUser(userService.verifyUser(ud.getId()));
 		report.setStatus(statusService.verifyStatus(reportForm.getStatus()));
-		report.setId(reportForm.getId());
-		report.setContent(reportForm.getContent());
-		report.setUrgency(reportForm.getUrgency());
 		reportService.save(report);
 
-			return "redirect:/reports/index";
+		return "redirect:/reports/index";
 	}
-
 
 }
