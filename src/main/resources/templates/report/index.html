@@ -11,11 +11,11 @@
 <body>
 	<div class="main-content" layout:fragment="contents">
 		<section class="home-section">
-			<div th:each="report, itemStat : ${repos}">
+			<div th:each="report, itemStat : ${repos}" th:object="${report}">
 				<div class="bugbox">
-					<p th:text=${report.title}></p>
-					<p th:text=${report.content}></p>
-					<p th:text=${report.createTime}></p>
+					<a href="#" th:href="@{/reports/{id}(id=*{id})}" th:text=*{title}></a>
+					<p th:text=*{content}></p>
+					<p th:text=*{createTime}></p>
 				</div>
 			</div>
 		</section>
