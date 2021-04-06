@@ -36,7 +36,7 @@ import lombok.Data;
 
 	//ここの処理は、参照用としての宣言
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="status_id", nullable=false, insertable = false, updatable = false)
+	@JoinColumn(name="status_id", nullable=false, insertable = false, updatable = true)
 	private Status status;
 
 

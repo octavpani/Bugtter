@@ -19,4 +19,9 @@ public class ReportService {
 		return maybeReport.orElseThrow(NotFoundStatusException::new);
 	}
 
+	public void save(Report report) {
+		reportRepository.save(report);
+
+	}
+
 }
