@@ -48,9 +48,10 @@ public class ReportController {
 	public String update(@ModelAttribute Report report, ReportForm reportForm, Authentication loginUser, Model model) {
 		CustomUserDetails ud = (CustomUserDetails) loginUser.getPrincipal();
 		//ここは一つにまとめるべき？
+		reportForm.setStatusService(statusService);
 		report = reportForm.toEntity();
-		report.setUser(userService.verifyUser(ud.getId()));
-		report.setStatus(statusService.verifyStatus(reportForm.getStatus()));
+		report.setUser(ud.getUser());
+		//report.setStatus(statusService.verifyStatus(reportForm.getStatus()));
 		reportService.save(report);
 
 		return "redirect:/reports/index";

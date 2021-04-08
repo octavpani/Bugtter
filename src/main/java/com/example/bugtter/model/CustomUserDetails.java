@@ -22,6 +22,10 @@ public class CustomUserDetails implements UserDetails {
 		return grantedAuthorities;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
 	public String getAvatar() {
 		return user.getAvatar();
 	}
