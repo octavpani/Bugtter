@@ -2,6 +2,8 @@ package com.example.bugtter.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.ConversionService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +18,6 @@ import com.example.bugtter.model.CustomUserDetails;
 import com.example.bugtter.model.Report;
 import com.example.bugtter.repository.ReportRepository;
 import com.example.bugtter.service.ReportService;
-import com.example.bugtter.service.StatusService;
-import com.example.bugtter.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,8 +27,8 @@ import lombok.RequiredArgsConstructor;
 public class ReportController {
 	private final ReportRepository repo;
 	private final ReportService reportService;
-	private final UserService userService;
-	private final StatusService statusService;
+	@Autowired
+	private final ConversionService conversionService;
 
 	@GetMapping("/index")
 	public String index(Model model) {
@@ -47,13 +47,27 @@ public class ReportController {
 	@PostMapping("/update")
 	public String update(@ModelAttribute Report report, ReportForm reportForm, Authentication loginUser, Model model) {
 		CustomUserDetails ud = (CustomUserDetails) loginUser.getPrincipal();
-		//ここは一つにまとめるべき？
-		reportForm.setStatusService(statusService);
+		//Inject ConversionService on ReportForm
+		reportForm.setConversionService(conversionService);
 		report = reportForm.toEntity();
 		report.setUser(ud.getUser());
-		//report.setStatus(statusService.verifyStatus(reportForm.getStatus()));
 		reportService.save(report);
+		return "redirect:/reports/index";
+	}
 
+	@GetMapping("/create")
+	public String create(@ModelAttribute  ReportForm reportForm, Model model) {
+		model.addAttribute("reportForm", reportForm);
+		return "report/form";
+	}
+
+	@PostMapping("/create")
+	public String create(@ModelAttribute Report report, ReportForm reportForm, Authentication loginUser, Model model) {
+		CustomUserDetails ud = (CustomUserDetails) loginUser.getPrincipal();
+		reportForm.setConversionService(conversionService);
+		report = reportForm.toEntity();
+		report.setUser(ud.getUser());
+		reportService.save(report);
 		return "redirect:/reports/index";
 	}
 

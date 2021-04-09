@@ -11,7 +11,7 @@
 <body>
 	<div class="main-content" layout:fragment="contents">
 		<section class="home-section">
-			<form th:action="@{/reports/update}" th:object="${reportForm}"
+			<form  th:object="${reportForm}" th:action="@{/reports/create}"
 				method="post">
 				<input type="hidden" th:field="*{id}">
 				<table>
@@ -32,8 +32,11 @@
 						</th>
 					</tr>
 				</table>
-				<div>
-					<input type="submit" class="ope" value="Submit">
+				<div th:if="*{isNew}">
+					<input  type="submit" th:formaction="@{/reports/create}" class="ope" value="Create">
+				</div>
+				<div th:unless="*{isNew}">
+					<input  type="submit" th:formaction="@{/reports/update}" class="ope" value="Update">
 				</div>
 			</form>
 		</section>

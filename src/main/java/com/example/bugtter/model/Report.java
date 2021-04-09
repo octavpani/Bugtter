@@ -36,12 +36,12 @@ import lombok.Data;
 
 	//ここの処理は、参照用としての宣言
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="status_id", nullable=false, insertable = false, updatable = true)
+	@JoinColumn(name="status_id", nullable=false, insertable = true, updatable = true)
 	private Status status;
 
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="user_id", nullable=false, insertable = false, updatable = false)
+	@JoinColumn(name="user_id", nullable=false, insertable = true, updatable = false)
 	private User user;
 
 	//後で、CreateUserとUpdateUserで分けるかも
