@@ -1,0 +1,267 @@
+@import 'mixin';
+
+@import url(https://use.fontawesome.com/releases/v5.15.2/css/all.css);
+/* reset and basic tags */
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+* {
+	box-sizing: border-box
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	padding: 40px;
+}
+
+h1, h2, h3, section {
+	margin-bottom: 8px;
+}
+
+body.login {
+	background-image: url("../img/frog.jpg");
+	background-size: cover;
+	background-repeat:  no-repeat;
+	width:100%;
+	height:400px;
+}
+
+div.login-form {
+    position:absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+div.login-button {
+    position: absolute;
+    left: 44%;
+    top: 200%;
+}
+
+// div.title-logo {
+// 	position: absolute;
+//     top: 25%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     color: white;
+//     opacity: 0;
+//     font-size: 3em;
+// }
+
+/* layout */
+.container {
+	margin: 0 auto;
+	max-width: 800px;
+	background-color: #f5f5f5;
+	padding: 8px 16px;
+}
+.header-content {
+	padding: 20px;
+	color: #f5f5f5;
+	background-color: #0000ff;
+	position: relative;
+}
+.main-content {
+	padding: 8px;
+	background: linear-gradient(#fefefe, #f5f5f5);
+}
+aside {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	font-size: smaller;
+	//background-color: rgb(255,255,171,0.5);
+	padding: 4px;
+}
+
+
+/* header section */
+.brand {
+	padding: 0 4px;
+	text-transform: uppercase;
+	font-size: 2em;
+	font-weight: bold;
+}
+.brand a {
+	padding: 0 4px;
+}
+.brand a:hover {
+	background-color: #777777;
+}
+.user-info {
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	transform: translateY(-40%);
+}
+.user-info .avatar {
+	height: 32px;
+	vertical-align: middle;
+	border-radius: 50%;
+}
+.user-info .logout {
+	display: inline-block;
+}
+.user-info .logout input {
+	background-color: #f5f5f5;
+	color: #1f1f1f;
+	padding: 2px 8px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+/* flash message */
+
+
+/* back nav */
+
+
+/* grid */
+
+
+/* form */
+input.with-error {
+	border-color: #ff0000;
+}
+.input-msg,
+.error-msg {
+	font-size: 0.8em;
+}
+.error-msg {
+	color: #ff0000;
+}
+.ope-form {
+	display: inline-block;
+}
+
+.box {
+	    max-height: 100px;
+}
+
+.box17{
+    margin: 2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    max-width: 300px;
+    bottom: 100px;
+    left: 370px;
+}
+.box17:before, .box17:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+.box17:before {left: 10px;}
+.box17:after {right: 10px;}
+.box17 p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Bug Box */
+.bugbox {
+    position: relative;
+    margin: 2em 0 2em 40px;
+    padding: 8px 15px;
+    background: #fff0c6;
+    border-radius: 30px;
+    max-width: 300px;
+}
+.bugbox:before{font-family: FontAwesome;
+    content: "\f111";
+    position: absolute;
+    font-size: 15px;
+    left: -40px;
+    bottom: 0;
+    color: #fff0c6;
+}
+.bugbox:after{
+    font-family: FontAwesome;
+    content: "\f111";
+    position: absolute;
+    font-size: 23px;
+    left: -23px;
+    bottom: 0;
+    color: #fff0c6;
+}
+.bugbox p {
+    margin: 0;
+    padding: 0;
+}
+
+/* paging */
+
+
+/* sorting */
+
+
+/* menu */
+
+
+.avatar {
+	max-width: 100px;
+}
+
+
+
+
+#container {
+    position: relative;
+    height: 100vh;
+}
+
+.animate-title,
+.logo-title {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0; 
+    font-size: 3em;
+
+    &.inview {
+        opacity: 1;
+        & .char {
+            display: inline-block;
+            @include animation(
+                $name: kf-animate-chars,
+                $duration: 0.5s,
+                $timing-function: cubic-bezier(0.39, 1.57, 0.5s, 1),
+                $fill-mode: both
+            );
+            @for $i from 1 through 13 {
+                &:nth-child(#{$i}) {
+                    animation-delay: $i * 0.04s;
+                }
+            }
+        }
+    }
+}
+
+@keyframes kf-animate-chars {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

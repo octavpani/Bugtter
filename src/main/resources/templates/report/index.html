@@ -6,19 +6,40 @@
 	layout:decorate="~{partial/layout}">
 <head>
 <title>Home</title>
-<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../static/css/style.css">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<!--type="text/css" -->
 </head>
 <body>
+
 	<div class="main-content" layout:fragment="contents">
+<!--
+	<div id="container">
+		<div class="animate-title">
+			TEST! An ima!
+		</div>
+		<div class="animate-title2" th:text="RARARARA  ">
+
+		</div>
+	<button onclick="document.querySelectorAll('.animate-title, .animate-title2').forEach(el => el.classList.toggle('inview'));">ボタンですよ。</button>
+
+	</div>
+-->
 		<section class="home-section">
-			<div th:each="report, itemStat : ${repos}" th:object="${report}">
+			<div class="box" th:each="report, itemStat : ${repos}" th:object="${report}">
 				<div class="bugbox">
-					<a href="#" th:href="@{/reports/{id}(id=*{id})}" th:text=*{title}></a>
+					<a class="title" href="#" th:href="@{/reports/{id}(id=*{id})}" th:text=*{title}></a>
+					<p th:text=*{content}></p>
+					<p th:text=*{createTime}></p>
+				</div>
+				<div class="box17">
 					<p th:text=*{content}></p>
 					<p th:text=*{createTime}></p>
 				</div>
 			</div>
 		</section>
 	</div>
+	<script src="../../static/js/main.js"></script>
 </body>
 </html>
