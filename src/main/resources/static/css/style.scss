@@ -61,6 +61,7 @@ div.login-button {
 .container {
 	margin: 0 auto;
 	max-width: 800px;
+	 max-height: 1400px;
 	background-color: #f5f5f5;
 	padding: 8px 16px;
 }
@@ -232,7 +233,7 @@ input.with-error {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    opacity: 0; 
+    opacity: 0;
     font-size: 3em;
 
     &.inview {

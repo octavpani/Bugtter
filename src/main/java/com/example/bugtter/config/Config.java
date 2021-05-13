@@ -33,7 +33,7 @@ public class Config extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/top", "/error").permitAll()
-			.antMatchers("/logout", "/reports/**", "/reports/create").authenticated()
+			.antMatchers("/logout", "/reports/**", "/reports/create", "reports/delete/*").authenticated()
 			.antMatchers("/admin/**").hasRole(Role.ADMIN.name())
 			.anyRequest().authenticated();
 		http.formLogin()

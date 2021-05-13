@@ -6,7 +6,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 public class Utils {
-	//引数を3つに絞っている。3なら、  2 >= 3 - 1 となり、ブレーク
 	static public String pathWithPage(String base, Pageable pageable, Object...args) {
 		UriComponentsBuilder builder = UriComponentsBuilder.newInstance().path(base);
 		for (int i = 0;i < args.length;i += 2) {

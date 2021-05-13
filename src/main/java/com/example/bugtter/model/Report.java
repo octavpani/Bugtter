@@ -49,7 +49,7 @@ import lombok.Data;
 	//キャストできるの？データベースはchar
 	@NotNull
 	@Column(name = "urgency")
-	private int urgency;
+	private Integer urgency;
 
 	@NotNull
 	@Column(name="create_time")
@@ -58,12 +58,13 @@ import lombok.Data;
 	public Report() {
 	}
 
-	public Report(Long id, String title, String content, Status status, User user, LocalDateTime createTime) {
+	public Report(Long id, String title, String content, Status status, User user, Integer urgency, LocalDateTime createTime) {
 	this.id = id;
 	this.title = title;
 	this.content = content;
 	this.status = status;
 	this.user = user;
+	this.urgency = urgency;
 	this.createTime = createTime;
 	}
 }
