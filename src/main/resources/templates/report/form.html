@@ -7,6 +7,8 @@
 <head>
 <title>Home</title>
 <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../static/css/style.css" />
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
 </head>
 <body>
 	<div class="main-content" layout:fragment="contents">
@@ -16,25 +18,28 @@
 				<input type="hidden" th:field="*{id}">
 					<div class="el">
 						<h3>Title</h3>
-						<div><input type="text"name="title"  class="title" th:value="*{title}" maxlength="30" ></div>
+						<div><input type="text" id="title" name="title"  class="title" th:value="*{title}" maxlength="30" ></div>
 					</div>
 					<div class="el">
 					<h5>Status</h5>
-						<div><input type="number"  name="status" class="num" th:value="*{status}" min="1" max="3"></div>
+						<div><input type="number"  name="status" id="sta" class="num" th:value="*{status}" min="1" max="3"></div>
 					</div>
 					<div class="el">
 					<h5>Urgency</h5>
-						<div><input type="number" name="urgency" class="num"  th:value="*{urgency}" min="1" max="5"></div>
+						<div><input type="number" name="urgency"  id="urg" class="num"  th:value="*{urgency}" min="1" max="5"></div>
 					</div>
 					<div class="el">
 					<h5>Content</h5>
-						<textarea name="content" th:value="*{content}" th:text="*{content}"rows="10" cols="20" maxlength="140"></textarea>
+						<textarea name="content" id="content" th:value="*{content}" th:text="*{content}"rows="10" cols="20" maxlength="140"></textarea>
 					</div>
 				<div class="el" th:if="*{isNew}">
 					<input  type="submit" th:formaction="@{/reports/create}" class="ope" value="Create">
 				</div>
 				<div class="el" th:unless="*{isNew}">
-					<input  type="submit" th:formaction="@{/reports/update}" class="ope" value="Update">
+					<input  type="submit" th:formaction="@{/reports/update}" class="ope" id="ud-btn" value="Update">
+				</div>
+				<div th:if="${mode == 'reCreate'}">
+					<div class="ale"></div>
 				</div>
 			</form>
 		</section>

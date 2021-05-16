@@ -10,7 +10,6 @@ public class Utils {
 		UriComponentsBuilder builder = UriComponentsBuilder.newInstance().path(base);
 		for (int i = 0;i < args.length;i += 2) {
 			if (i  >= args.length - 1) break;
-			//引数を減らす。
 			builder.queryParam((String)args[i], args[i + 1]);
 		}
 		builder.queryParam("page", pageable.getPageNumber());

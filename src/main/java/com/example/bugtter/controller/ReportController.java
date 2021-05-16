@@ -8,6 +8,8 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,8 +60,16 @@ public class ReportController {
 	}
 
 	@PostMapping("/update")
-	public String update(@ModelAttribute Report report, ReportForm reportForm, Authentication loginUser, Model model) {
+	public String update(@ModelAttribute Report report, @Validated ReportForm reportForm,BindingResult result,  Authentication loginUser, Model model) {
 		CustomUserDetails ud = (CustomUserDetails) loginUser.getPrincipal();
+		//validationにかかった時、値は、nullになる。
+		//だから、jsの!条件にかかって、エラーメッセージに入る。
+		if (result.hasErrors() ) {
+			model.addAttribute("mode", "reCreate");
+			return "report/form";
+		}
+
+
 		//Inject ConversionService on ReportForm
 		reportForm.setConversionService(conversionService);
 		report = reportForm.toEntity();
