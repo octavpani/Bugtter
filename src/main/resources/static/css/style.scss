@@ -25,6 +25,10 @@ h1, h2, h3, section {
 	margin-bottom: 8px;
 }
 
+h5.tag {
+	display: inline;
+}
+
 .home-section {
 }
 
@@ -46,7 +50,7 @@ div.login-form {
 
 div.login-button {
     position: absolute;
-    left: 44%;
+     left: 40%;
     top: 200%;
 }
 
@@ -64,7 +68,6 @@ div.login-button {
 .container {
 	margin: 0 auto;
 	max-width: 800px;
-	 max-height: 1400px;
 	background-color: #f5f5f5;
 	padding: 8px 16px;
 	 position: relative;
@@ -96,7 +99,7 @@ input, textarea {
 .header-content {
 	padding: 20px;
 	color: #f5f5f5;
-	background-color: #0000ff;
+	background-color:#959e51;
 	position: relative;
 }
 .main-content {
@@ -117,7 +120,7 @@ aside {
 .brand {
 	padding: 0 4px;
 	text-transform: uppercase;
-	font-size: 2em;
+	font-size: 3em;
 	font-weight: bold;
 }
 .brand a {
@@ -128,8 +131,8 @@ aside {
 }
 .user-info {
 	position: absolute;
-	top: 50%;
-	right: 8px;
+	top: 22%;
+	right: 14px;
 	transform: translateY(-40%);
 }
 .user-info .avatar {
@@ -146,6 +149,10 @@ aside {
 	padding: 2px 8px;
 	border-radius: 3px;
 	cursor: pointer;
+}
+
+.input#logout {
+	width: 74px;
 }
 
 /* flash message */
@@ -176,17 +183,17 @@ input.with-error {
 	    max-height: 100px;
 }
 
-.box17{
+.profile{
     margin: 2em 0;
     position: relative;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
     border-bottom: solid 2px black;
     max-width: 300px;
-    bottom: 100px;
-    left: 370px;
+	bottom: 104px;
+	 left: 413px;
 }
-.box17:before, .box17:after{
+.profile:before, .profile:after{
     content: '';
     position: absolute;
     top: -10px;
@@ -195,11 +202,29 @@ input.with-error {
     height: calc(100% + 20px);
     background-color: black;
 }
-.box17:before {left: 10px;}
-.box17:after {right: 10px;}
-.box17 p {
+.profile:before {left: 10px;}
+.profile:after {right: 10px;}
+.profile p {
     margin: 0;
     padding: 0;
+}
+
+.fuwa_btn{
+  display: inline-block;
+  background-color:  #959e51;
+  color: #FFF;
+  width: 74px;
+  padding: 0.8em;
+  text-decoration: none;
+  border-radius: 36px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s ease-out;
+}
+.fuwa_btn:hover{
+	 cursor: pointer;
+	 text-decoration: none;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.12), 0 3px 20px 0 rgba(0,0,0,0.12), 0 5px 6px -2px rgba(0,0,0,0.2);
 }
 
 /* Bug Box */
@@ -207,9 +232,10 @@ input.with-error {
     position: relative;
     margin: 2em 0 2em 40px;
     padding: 8px 15px;
-    background: #fff0c6;
+    background: #959e51;
     border-radius: 30px;
     max-width: 300px;
+	left: 28px;
 }
 .bugbox:before{font-family: FontAwesome;
     content: "\f111";
@@ -217,7 +243,7 @@ input.with-error {
     font-size: 15px;
     left: -40px;
     bottom: 0;
-    color: #fff0c6;
+    color: #959e51;
 }
 .bugbox:after{
     font-family: FontAwesome;
@@ -226,7 +252,7 @@ input.with-error {
     font-size: 23px;
     left: -23px;
     bottom: 0;
-    color: #fff0c6;
+    color: #959e51;
 }
 .bugbox p {
     margin: 0;
@@ -238,6 +264,20 @@ input.with-error {
 
 /* sorting */
 
+.search-form {
+	text-align: center;
+}
+
+.sort {
+    text-align: center;
+	margin-top: 10px;
+}
+
+.link {
+    text-align: center;
+	margin-top: 10px;
+}
+
 
 /* menu */
 
@@ -245,8 +285,6 @@ input.with-error {
 .avatar {
 	max-width: 100px;
 }
-
-
 
 
 #container {

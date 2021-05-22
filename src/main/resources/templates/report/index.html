@@ -14,18 +14,25 @@
 <body>
 
 	<div class="main-content" layout:fragment="contents">
-		<form th:action="@{''}" method="get">
-			タイトル<input type="text" name="title"> 緊急度<input type="number"
-				name="urgency"> ステータス<input type="number" name="status_Id">
-			<input type="submit">
-		</form>
+		<div class="search-form">
+				<form th:action="@{''}" method="get">
+				<h5 class="tag">タイトル</h5>
+				<input type="text" name="title"  th:value="${title}">
+				<h5 class="tag"> 緊急度</h5>
+				<input type="number"name="urgency" th:value="${urgency}" max="5" min="1">
+				<h5 class="tag">ステータス</h5>
+				<input type="number" name="status_Id" th:value="${status_Id}" max="3" min="1">
+				<button type="submit" class="fuwa_btn "><span>Submit</span></button>
+			</form>
+		</div>
 
 
-		<form th:action="@{/reports/delete}" method="post">
+<!--  		<form th:action="@{/reports/delete}" method="post">
 
 			<input type="submit" value="Delete"> <input type="submit"
 				th:formaction="@{/reports/{id}(id=*{id})}" value="Edit">
 		</form>
+		-->
 		<section class="home-section">
 			<div class="box" th:each="report, itemStat : ${reportList}"
 				th:object="${report}">
@@ -34,15 +41,15 @@
 						th:text=*{title}></a>
 					<p th:text="*{id}"></p>
 					<p th:text=*{content}></p>
-					<p th:text=*{createTime}></p>
+					<p th:text=*{brandNewDay()}></p>
 				</div>
-				<div class="box17">
+				<div class="profile">
 					<p th:text=*{content}></p>
 					<p th:text=*{createTime}></p>
 				</div>
 			</div>
 		</section>
-					<section  th:object="${reports}">
+		<section  class="link" th:object="${reports}">
 				<h3>ページングリンク</h3>
 				<div class="pager">
 					<a th:href="@{${pathWithSort}(page=0)}">最初</a>
@@ -52,15 +59,15 @@
 					</th:block>
 					<a th:href="@{${pathWithSort}(page=*{totalPages-1})}">最後</a>
 				</div>
-			</section>
-			<section class="sort"  th:object="${reports}">
+		</section>
+		<section class="sort"  th:object="${reports}">
 				<h3>ソートリンク</h3>
 				<ul class="sorter">
 					<li><a th:href="@{${pathWithPage}(sort=content)}">content昇順</a></li>
 					<li><a th:href="@{${pathWithPage}(sort='urgency,desc')}">urgency降順</a></li>
 					<li><a th:href="@{/error/on/purpose}">エラー</a> <!-- <li><a th:href="@{${pathWithPage}(sort=name,sort='month,desc')}">名前昇順&amp;月降順</a></li> -->
 				</ul>
-			</section>
+		</section>
 	</div>
 	<script src="../../static/js/main.js"></script>
 </body>

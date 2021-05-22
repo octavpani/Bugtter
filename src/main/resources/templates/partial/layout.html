@@ -20,10 +20,11 @@
 					<span th:text="${#authentication.principal.username}">user</span> <img
 						class="avatar"
 						th:src="${#authentication.principal.avatar} != '' ? ${#authentication.principal.avatar} : @{/img/default_avatar.jpg}" />
-					<form th:action="@{/top}" method="get" />
-					<input class="ope" type="button" value="Logout" />
-					</form>
 				</div>
+				<div class="logout">
+					<form th:action="@{/}" method="get" />
+						<input class="fuwa_btn" id="logout" type="button" value="Logout" />
+					</form>
 			</div>
 		</div>
 	</header>

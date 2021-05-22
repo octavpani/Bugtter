@@ -1,5 +1,7 @@
 package com.example.bugtter.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.Page;
@@ -45,10 +47,17 @@ public class ReportController {
 			Model model) {
 		//リスト表示
 		Page<Report> reports = reportService.findReports(pageable, repoQue);
+		List<Report> reportList = reports.getContent();
+
+		
 		model.addAttribute("pathWithPage", Utils.pathWithPage("", pageable, "title", title, "urgency", urgency, "status_Id", status_Id));
 		model.addAttribute("pathWithSort", Utils.pathWithSort("", pageable, "title", title, "urgency", urgency, "status_Id", status_Id));
-		model.addAttribute("reportList", reports.getContent());
+		//model.addAttribute("reportList", reports.getContent());
+		model.addAttribute("reportList", reportList);
 		model.addAttribute("reports", reports);
+		model.addAttribute("title", title);
+		model.addAttribute("urgency", urgency);
+		model.addAttribute("status_Id", status_Id);
 		return "report/index";
 	}
 

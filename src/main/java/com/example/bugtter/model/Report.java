@@ -1,6 +1,7 @@
 package com.example.bugtter.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -54,6 +55,12 @@ import lombok.Data;
 	@NotNull
 	@Column(name="create_time")
 	private LocalDateTime createTime;
+	
+	//private String date = createTime.format(DateTimeFormatter.ofPattern("yyyy MM dd"));
+	
+	public String brandNewDay() {
+		return createTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd H:mm:ss"));
+	}
 
 	public Report() {
 	}
